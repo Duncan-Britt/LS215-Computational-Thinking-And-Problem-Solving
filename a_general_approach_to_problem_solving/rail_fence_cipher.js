@@ -28,7 +28,7 @@ function railDecode(grid) {
 }
 
 function makeGrid(encodedMessage) {
-  const lines = ENCODED_MESSAGE.split('\n');
+  const lines = encodedMessage.split('\n');
   const grid = lines.map(row => row.match(/\S/g));
   return grid;
 }
@@ -102,4 +102,10 @@ console.log(encode(MESSAGE, 4) === ENCODED_FOUR_RAILS);
 
 console.log(
   decode(encode(MESSAGE, 5))
+);
+
+console.log(
+  encode('HELLO world', 5),
+  '\n',
+  decode(encode('Hello World', 5))
 );
