@@ -15,7 +15,7 @@
 
 function compareVersions(version1, version2) {
   function valid(version) {
-    return /^(\d*\.?)*$/.test(version);
+    return /^\d+(\.\d+)*$/.test(version);
   }
 
   if (!valid(version1) || !valid(version2)) return null;
@@ -44,3 +44,9 @@ function compareVersions(version1, version2) {
 console.log(compareVersions('1.18.2', '13.37')); // -1
 console.log(compareVersions('13.7', '1.18.2')); // 1
 console.log(compareVersions('1.18.2.0', '1.18.2')); // 0
+console.log(compareVersions('1.1.', '13.3'));
+console.log(compareVersions('1.a', '13.3'));
+
+console.log(compareVersions('1.0', '1.0.0'));    // 0
+console.log(compareVersions('1.0.0', '1.1'));    // -1
+console.log(compareVersions('1.0', '1.0.5'));    // -1
